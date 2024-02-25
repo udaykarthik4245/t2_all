@@ -1,0 +1,43 @@
+                           E---->>>    The effect of network size.🤷‍♂️ 
+In this part, we will explore how changing the network size affects training. Suppose that we 
+were to use a network with more channels. Specifically, suppose that we doubled the number 
+of channels in each convolution layer of the network from 32 to 64 and doubled the output 
+dimension of the dense layer from 128 to 256.
+
+Make a hypothesis about how this change will affect the accuracy after training
+Effect on Accuracy: 
+  Doubling the number of channels in each convolution layer and increasing the number of dimensions of the output dense layer may yield a better accuracy. Thus, expanding the network size enables it to discover more elaborate phenomena and patterns in the data. With the introduction of more channels in the convolution layers and a higher dimensional representation in the dense layer, the network may be better equipped to learn the intricate relationships within the data, which may be reflected in higher performance on the given task.
+
+Make a hypothesis about how this change will affect the wall-clock time of training. Your hypothesis should include a guess of by what factor you would expect the wall-clock time of training to increase or decrease due to this change?
+  
+Effect on Wall-clock Time:
+  In order to make the training faster, one can double the number of channels in each convolution layer and increase the output dimension of the dense layer. The augmentation of parameters and computations per layers will extend the training times. This is due to the fact that the increase in the training time may depend on hardware specifications, batch size, and optimization techniques. Nevertheless, one could expect a reasonable possibility of an increased training time, possibly to even double the original time because of the doubling of parameters and computations.
+
+       D--->>>   The effect of momentum🤷‍♂️
+Using momentum in optimization algorithms like SGD can have significant effects on the training process:
+
+Effect on Accuracy:
+
+Momentum helps accelerate SGD by accumulating a velocity vector in the parameter space direction. This can help SGD overcome local minima and saddle points more effectively, leading to faster convergence and potentially better generalization.
+Hypothesis: Removing momentum (setting β=0) may result in slower convergence and potentially lower accuracy after training compared to using momentum.
+Effect on Wall-Clock Time of Training:
+
+Momentum introduces additional computations to maintain and update the velocity vector, which can increase the computational cost per iteration. However, momentum can also help SGD converge faster, potentially reducing the total number of iterations required for convergence.
+Hypothesis: Removing momentum may lead to slightly faster wall-clock time of training due to the reduced computational overhead per iteration. However, the overall training time may increase due to the potentially slower convergence of the optimization process.
+
+                        C. The effect of changing the minibatch size.
+In this part, we will explore how changing the minibatch size hyperparameter B. Suppose that we were to decrease this hyperparameter to B=8, and then run the same experiment.
+ Make a hypothesis about how this change will affect the accuracy after training.
+ Make a hypothesis about how this change will affect the wall-clock time of training.
+
+
+Changing the minibatch size can have several effects on the training process and the resulting model performance:
+
+Effect on Accuracy:
+
+Decreasing the minibatch size typically leads to more frequent updates of the model parameters. This may help the model converge faster as it gets more frequent feedback from the data. However, smaller minibatch sizes may introduce more noise into the parameter updates, potentially causing the training process to become less stable.
+Hypothesis: Decreasing the minibatch size to B=8 may result in slightly improved accuracy after training due to more frequent updates, but it might also lead to a less stable training process.
+Effect on Wall-Clock Time of Training:
+
+Smaller minibatch sizes result in more frequent weight updates per epoch, which can increase the total training time per epoch. However, smaller minibatches can also lead to more efficient GPU utilization, especially on modern hardware that can parallelize computations efficiently.
+Hypothesis: Decreasing the minibatch size to B=8 may lead to longer wall-clock time for training due to the increased frequency of weight updates, although this increase may not be proportional to the decrease in minibatch size. Additionally, if the hardware can efficiently handle smaller minibatches, the increase in training time might be minimal.
